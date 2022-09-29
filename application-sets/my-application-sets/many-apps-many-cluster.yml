@@ -3,8 +3,6 @@ kind: ApplicationSet
 metadata:
   name: cluster-git
 spec:
-  syncPolicy:
-    auto-sync/self-heal/createNamespace: true
   generators:
     # matrix 'parent' generator
     - matrix:
@@ -16,7 +14,7 @@ spec:
               directories:
                 - path: application-sets/example-apps/*
           # cluster generator, 'child' #2
-          - clusters:
+          - clusters: default
   template:
     metadata:
       name: '{{path.basename}}-{{name}}'
@@ -29,3 +27,7 @@ spec:
       destination:
         server: '{{server}}'
         namespace: '{{path.basename}}'
+      syncPolicy:
+        self-heal:
+        - createNamespace: true
+        
