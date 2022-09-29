@@ -27,7 +27,7 @@ spec:
       destination:
         server: '{{server}}'
         namespace: '{{path.basename}}'
-      syncPolicy:
-        self-heal:
-        - createNamespace: true
-        
+     syncPolicy:
+      automated:
+       selfHeal: 
+       - createNamespace: true
