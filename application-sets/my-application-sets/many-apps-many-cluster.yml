@@ -17,6 +17,7 @@ spec:
           - clusters: {} 
   template:
     metadata:
+      project: 'default'
       name: '{{path.basename}}-{{name}}'
     spec:
       source:
