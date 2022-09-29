@@ -3,6 +3,8 @@ kind: ApplicationSet
 metadata:
   name: cluster-git
 spec:
+  syncPolicy:
+    auto-sync/self-heal/createNamespace: true
   generators:
     # matrix 'parent' generator
     - matrix:
