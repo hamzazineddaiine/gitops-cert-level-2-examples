@@ -7,6 +7,9 @@ metadata:
   annotations:
     creation: at-{{ now | date "20160102150405" }}
 spec:
+  ignoreDifferences:
+  - group: apps
+    kind: Deployment
   selector:
     matchLabels:
       app: trivial-go-web-app
